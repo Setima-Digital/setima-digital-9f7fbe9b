@@ -182,6 +182,24 @@ function SetimaDigitalPage() {
       e.preventDefault();
       if (!submitBtn) return;
       const originalText = submitBtn.textContent;
+
+      // Coletar valores dos campos
+      const name = (document.getElementById("formName") as HTMLInputElement)?.value?.trim() ?? "";
+      const contact = (document.getElementById("formContact") as HTMLInputElement)?.value?.trim() ?? "";
+      const service = (document.getElementById("formService") as HTMLSelectElement)?.value?.trim() ?? "";
+      const message = (document.getElementById("formMessage") as HTMLTextAreaElement)?.value?.trim() ?? "";
+
+      // Montar mensagem para WhatsApp
+      const lines: string[] = ["*Nova Solicitação de Orçamento — Sétima Digital*", ""];
+      if (name) lines.push(`*Nome/Empresa:* ${name}`);
+      if (contact) lines.push(`*Contato:* ${contact}`);
+      if (service) lines.push(`*Pilar de Interesse:* ${service}`);
+      if (message) lines.push(`*Descrição:* ${message}`);
+      lines.push("", "Vim pelo site setimadigital.lovable.app");
+
+      const waUrl = `https://wa.me/5547996300079?text=${encodeURIComponent(lines.join("\n"))}`;
+      window.open(waUrl, "_blank");
+
       (submitBtn as HTMLButtonElement).disabled = true;
       submitBtn.textContent = "Enviando...";
       setTimeout(() => {

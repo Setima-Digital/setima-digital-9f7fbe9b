@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import "@/styles/setima.css";
+import setimaSymbol from "@/assets/setima-symbol.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -212,28 +213,7 @@ function SetimaDigitalPage() {
             <a href="#inicio" className="brand-logo" aria-label="Sétima Digital Início">
 
               <span className="brand-symbol-icon" aria-hidden="true">
-                <svg viewBox="0 0 100 100" width="36" height="36" fill="none">
-                  <defs>
-                    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#FF6B1A"></stop>
-                      <stop offset="25%" stopColor="#FF3D9A"></stop>
-                      <stop offset="50%" stopColor="#9C27B0"></stop>
-                      <stop offset="75%" stopColor="#7B2FBE"></stop>
-                      <stop offset="100%" stopColor="#2962FF"></stop>
-                    </linearGradient>
-                  </defs>
-
-                  <polygon points="50,6 89,28 98,73 72,99 28,99 2,73 11,28" stroke="url(#logoGrad)" strokeWidth="3" fill="none" opacity="0.6"></polygon>
-                  <polygon points="50,6 72,99 11,28 98,73 28,99 89,28 2,73" stroke="url(#logoGrad)" strokeWidth="2" fill="none" opacity="0.85"></polygon>
-
-                  <circle cx="50" cy="6" r="4" fill="#FF6B1A"></circle>
-                  <circle cx="89" cy="28" r="4" fill="#FF3D9A"></circle>
-                  <circle cx="98" cy="73" r="4" fill="#E91E8C"></circle>
-                  <circle cx="72" cy="99" r="4" fill="#9C27B0"></circle>
-                  <circle cx="28" cy="99" r="4" fill="#7B2FBE"></circle>
-                  <circle cx="2" cy="73" r="4" fill="#3F51B5"></circle>
-                  <circle cx="11" cy="28" r="4" fill="#2962FF"></circle>
-                </svg>
+                <img src={setimaSymbol.url} alt="" />
               </span>
 
               <span className="brand-name">
@@ -1034,16 +1014,7 @@ function SetimaDigitalPage() {
             <div>
               <a href="#inicio" className="brand-logo" style={{ marginBottom: "1rem" }}>
                 <span className="brand-symbol-icon" aria-hidden="true">
-                  <svg viewBox="0 0 100 100" width="32" height="32" fill="none">
-                    <polygon points="50,6 89,28 98,73 72,99 28,99 2,73 11,28" stroke="url(#logoGrad)" strokeWidth="3"></polygon>
-                    <circle cx="50" cy="6" r="4" fill="#FF6B1A"></circle>
-                    <circle cx="89" cy="28" r="4" fill="#FF3D9A"></circle>
-                    <circle cx="98" cy="73" r="4" fill="#E91E8C"></circle>
-                    <circle cx="72" cy="99" r="4" fill="#9C27B0"></circle>
-                    <circle cx="28" cy="99" r="4" fill="#7B2FBE"></circle>
-                    <circle cx="2" cy="73" r="4" fill="#3F51B5"></circle>
-                    <circle cx="11" cy="28" r="4" fill="#2962FF"></circle>
-                  </svg>
+                  <img src={setimaSymbol.url} alt="" />
                 </span>
                 <span className="brand-name">
                   <span className="brand-bold">SÉTIMA</span>

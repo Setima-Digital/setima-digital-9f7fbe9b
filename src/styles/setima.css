@@ -1414,6 +1414,15 @@
       transition: border-color 0.2s ease;
     }
 
+    .form-select {
+      color-scheme: dark;
+    }
+
+    .form-select option {
+      background: #12121e;
+      color: #ffffff;
+    }
+
     .form-input:focus, .form-textarea:focus, .form-select:focus {
       border-color: var(--accent);
       background: rgba(255, 255, 255, 0.07);

@@ -231,7 +231,7 @@ function SetimaDigitalPage() {
             <a href="#inicio" className="brand-logo" aria-label="Sétima Digital Início">
 
               <span className="brand-symbol-icon" aria-hidden="true">
-                <img src={setimaSymbol.url} alt="" width="344" height="344" />
+                <img src={setimaSymbol.url} alt="" width="344" height="344" loading="eager" decoding="async" fetchPriority="high" />
               </span>
 
               <span className="brand-name">
@@ -1037,7 +1037,7 @@ function SetimaDigitalPage() {
             <div>
               <a href="#inicio" className="brand-logo" style={{ marginBottom: "1rem" }}>
                 <span className="brand-symbol-icon" aria-hidden="true">
-                  <img src={setimaSymbol.url} alt="" width="344" height="344" />
+                  <img src={setimaSymbol.url} alt="" width="344" height="344" loading="lazy" decoding="async" />
                 </span>
                 <span className="brand-name">
                   <span className="brand-bold">SÉTIMA</span>

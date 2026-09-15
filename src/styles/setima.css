@@ -452,6 +452,17 @@
       transform: translateY(-2px);
     }
 
+    .label-mobile { display: none; }
+
+    .cta-label {
+      min-width: 0;
+      text-align: center;
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-break: normal;
+      hyphens: none;
+    }
+
     /* Floating Cinema badge in hero */
     .hero-badge-float {
       margin-top: 3.5rem;
@@ -2048,6 +2059,82 @@
       }
 
       .cta-container { gap: 1.5rem; }
+
+      .hero-actions {
+        flex-direction: row;
+        gap: 0.75rem;
+      }
+
+      .hero-actions .btn-brand-primary,
+      .hero-actions .btn-cinema-secondary,
+      .portfolio-bottom-action .btn-cinema-secondary {
+        width: auto;
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 639px) {
+      .label-mobile { display: inline; }
+      .label-desktop { display: none; }
+
+      .menu-toggle,
+      .btn-brand-primary,
+      .btn-cinema-secondary,
+      .instagram-pill,
+      .tab-btn,
+      .chip-item,
+      .whatsapp-direct-btn,
+      .instagram-direct-btn,
+      .form-submit-btn,
+      .lightbox-close-btn {
+        min-height: 44px;
+      }
+
+      .menu-toggle {
+        width: 44px;
+        height: 44px;
+        padding: 0.5rem;
+      }
+
+      .hero-actions { gap: 0.75rem; }
+
+      .hero-actions .btn-brand-primary,
+      .hero-actions .btn-cinema-secondary,
+      .portfolio-bottom-action .btn-cinema-secondary,
+      .direct-links a,
+      .form-submit-btn {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .instagram-pill {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .btn-brand-primary svg,
+      .btn-cinema-secondary svg,
+      .instagram-pill svg,
+      .direct-links svg {
+        flex-shrink: 0;
+      }
+
+      .portfolio-bottom-action .cta-label,
+      .direct-links .cta-label,
+      .form-submit-btn .cta-label {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      .lightbox-body > div:last-child {
+        flex-direction: column;
+        gap: 0.75rem !important;
+      }
+
+      .lightbox-body .btn-brand-primary,
+      .lightbox-body .btn-cinema-secondary { width: 100%; }
     }
 
     @media (max-width: 420px) {

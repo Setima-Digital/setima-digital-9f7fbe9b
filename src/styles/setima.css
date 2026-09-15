@@ -24,15 +24,24 @@
       scroll-behavior: smooth;
     }
 
+    html,
     body {
       background-color: var(--bg-darkest);
       color: #edf0f8;
       font-family: var(--font-body);
       margin: 0;
       padding: 0;
+      width: 100%;
+      max-width: 100%;
       overflow-x: hidden;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+    }
+
+    .setima-page {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     h1, h2, h3, h4, .brand-title {
@@ -1615,41 +1624,333 @@
 
     /* Responsive */
     @media (max-width: 1024px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-      .process-timeline { grid-template-columns: repeat(2, 1fr); }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .cta-container { grid-template-columns: 1fr; padding: 3rem 2rem; }
+      .nav-container,
+      .hero-content,
+      .section-head,
+      .about-grid,
+      .services-grid,
+      .portfolio-grid,
+      .process-timeline,
+      .coverage-wrap,
+      .cta-container,
+      .footer-top,
+      .footer-bottom {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+      }
+
+      .section-wrap {
+        width: 100%;
+        max-width: 100%;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+        overflow: hidden;
+      }
+
+      .about-grid > *,
+      .services-grid > *,
+      .portfolio-grid > *,
+      .process-timeline > *,
+      .cta-container > *,
+      .footer-top > * {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .services-grid,
+      .portfolio-grid,
+      .process-timeline,
+      .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cta-container { grid-template-columns: minmax(0, 1fr); padding: 3rem 2rem; }
+
+      .service-card.pillar-featured {
+        grid-column: 1 / -1;
+        grid-template-columns: auto minmax(0, 1fr);
+      }
+
+      .service-card.pillar-featured > .service-pill-tag { grid-column: 2; }
     }
 
     @media (max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr; }
-      .portfolio-grid { grid-template-columns: 1fr; }
-      .process-timeline { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
+      .nav-header { padding: 0.85rem 0; }
+      .nav-header.scrolled { padding: 0.65rem 0; }
+
+      .nav-container {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0.75rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+
+      .brand-logo,
+      .brand-name { min-width: 0; }
+      .brand-symbol-icon { flex-shrink: 0; }
+
+      .hero-section {
+        width: 100%;
+        min-height: 100svh;
+        padding: 7.5rem 1rem 4rem;
+      }
+
+      .hero-content,
+      .hero-title,
+      .hero-subtitle,
+      .hero-tagline,
+      .hero-badge-float,
+      .badge-text {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .hero-constellation-bg {
+        width: min(132vw, 34rem);
+        height: min(132vw, 34rem);
+      }
+
+      .light-orb {
+        max-width: 130vw;
+        max-height: 130vw;
+      }
+
+      .hero-pill {
+        max-width: 100%;
+        padding-right: 0.85rem;
+        padding-left: 0.85rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-align: center;
+      }
+
+      .hero-title { font-size: clamp(2.45rem, 13vw, 4rem); }
+      .hero-title .title-bold,
+      .hero-title .title-slim {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+      }
+      .hero-title .title-slim { letter-spacing: 0.12em; }
+
+      .hero-tagline {
+        font-size: 0.92rem;
+        letter-spacing: 0.1em;
+      }
+
+      .hero-subtitle {
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .hero-actions {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.9rem;
+      }
+
+      .hero-actions .btn-brand-primary,
+      .hero-actions .btn-cinema-secondary {
+        width: 100%;
+        max-width: 18rem;
+      }
+
+      .hero-badge-float {
+        width: 100%;
+        margin-top: 2.5rem;
+        padding: 0.75rem 1rem;
+      }
+
+      .badge-icon-box { flex-shrink: 0; }
+      .badge-text span { display: block; overflow-wrap: anywhere; }
+      .scroll-indicator { display: none; }
+
+      .section-wrap { padding: 4.5rem 1rem; }
+      .section-head { margin-bottom: 2.5rem; }
+
+      .section-title,
+      .cta-big-title { overflow-wrap: anywhere; }
+      .section-title { font-size: clamp(1.65rem, 8vw, 2.25rem); }
+      .section-desc,
+      .about-copy { font-size: 1rem; }
+
+      .about-grid,
+      .services-grid,
+      .portfolio-grid,
+      .process-timeline,
+      .footer-top { grid-template-columns: minmax(0, 1fr); }
+
+      .about-grid { gap: 2.5rem; }
+      .about-features { grid-template-columns: minmax(0, 1fr); }
+      .manifesto-box { padding: 1.25rem; }
+
+      .stats-card-matrix,
+      .service-card,
+      .process-step { padding: 1.5rem; }
+
+      .stat-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+      .stat-number { font-size: clamp(2rem, 10vw, 2.75rem); }
+      .stat-number .stat-plus { font-size: 1.65rem; }
+      .stat-badge-highlight { align-items: flex-start; flex-direction: column; }
+
+      .services-watermark-symbol {
+        right: -9rem;
+        width: min(130vw, 30rem);
+        height: min(130vw, 30rem);
+      }
+
+      .service-card.pillar-featured {
+        display: flex;
+        grid-column: auto;
+        align-items: stretch;
+        gap: 1.25rem;
+      }
+      .service-card.pillar-featured > .service-pill-tag { grid-column: auto; }
+      .service-card.pillar-featured > div:nth-child(2) > div {
+        align-items: flex-start !important;
+        flex-direction: column;
+        gap: 0.35rem !important;
+      }
+
+      .portfolio-filters {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 2rem;
+      }
+      .tab-btn { min-height: 44px; padding: 0.6rem 1rem; }
+      .portfolio-frame { height: auto; aspect-ratio: 16 / 10; }
+      .portfolio-info { padding: 1.25rem; }
+      .project-meta-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0.75rem;
+      }
+      .portfolio-bottom-action .btn-cinema-secondary { width: 100%; }
+
+      .coverage-wrap { border-radius: 20px; padding: 2.5rem 1rem; }
+      .chips-group { gap: 0.6rem; }
+      .chip-item {
+        min-height: 44px;
+        max-width: 100%;
+        padding: 0.6rem 1rem;
+        text-align: left;
+      }
+      .chip-item .dot { flex-shrink: 0; }
+
+      .cta-container {
+        gap: 2.25rem;
+        border-radius: 22px;
+        padding: 2rem 1rem;
+      }
+      .cta-big-title { font-size: clamp(2rem, 10vw, 2.7rem); }
+
+      .direct-links a {
+        width: 100%;
+        min-width: 0;
+        min-height: 48px;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        text-align: center;
+        overflow-wrap: anywhere;
+      }
+      .direct-links svg { flex-shrink: 0; }
+
+      .contact-form-card {
+        width: 100%;
+        min-width: 0;
+        padding: 1.25rem;
+      }
+      .form-input,
+      .form-textarea,
+      .form-select,
+      .form-submit-btn {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .site-footer { padding: 3.5rem 1rem 2rem; }
+      .footer-top { gap: 2.5rem; }
       .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+
+      .lightbox-modal { padding: 1rem; }
+      .lightbox-card {
+        max-height: calc(100svh - 2rem);
+        overflow-y: auto;
+      }
+      .lightbox-preview-area {
+        height: auto;
+        min-height: 12rem;
+        aspect-ratio: 16 / 9;
+      }
+      .lightbox-body { padding: 1.25rem; }
 
       .menu-toggle { display: block; }
       .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
         width: 80%;
         max-width: 320px;
-        height: 100vh;
+        height: 100svh;
         background: #0d0e17;
         flex-direction: column;
         align-items: flex-start;
         padding: 5rem 2rem;
         gap: 1.5rem;
         border-left: 1px solid var(--border-subtle);
-        transition: right 0.35s ease;
+        overflow-y: auto;
+        transform: translateX(105%);
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform 0.35s ease, visibility 0s linear 0.35s;
         box-shadow: -10px 0 30px rgba(0,0,0,0.8);
       }
       .nav-menu.active {
-        right: 0;
+        transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
+        transition-delay: 0s;
       }
       .nav-cta-btn { display: none; }
+    }
+
+    @media (max-width: 420px) {
+      .brand-logo { gap: 0.5rem; }
+      .brand-symbol-icon { width: 30px; height: 30px; }
+      .brand-name { gap: 0.2rem; font-size: 1rem; }
+      .brand-bold { letter-spacing: 0.05em; }
+      .brand-slim { letter-spacing: 0.1em; }
+
+      .hero-pill {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        font-size: 0.64rem;
+        letter-spacing: 0.09em;
+      }
+      .hero-title { font-size: clamp(2.25rem, 13vw, 3.4rem); }
+      .hero-badge-float { align-items: flex-start; }
+
+      .stat-row { grid-template-columns: minmax(0, 1fr); }
+      .stat-row + .stat-row { margin-top: 1.25rem !important; }
+
+      .portfolio-filters {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .portfolio-filters .tab-btn:first-child { grid-column: 1 / -1; }
+      .project-meta-row { grid-template-columns: minmax(0, 1fr); }
+      .project-cta-link { justify-self: start; }
+
+      .cta-container { padding-right: 0.75rem; padding-left: 0.75rem; }
+      .contact-form-card { padding: 1rem; }
+
+      .lightbox-body > div:last-child { flex-direction: column; }
+      .lightbox-body .btn-brand-primary,
+      .lightbox-body .btn-cinema-secondary { width: 100%; }
     }
   

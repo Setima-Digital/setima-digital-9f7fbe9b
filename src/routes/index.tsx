@@ -41,14 +41,29 @@ function SetimaDigitalPage() {
 
     const menuToggle = document.getElementById("menuToggle");
     const navMenu = document.getElementById("navMenu");
-    const toggleMenu = () => navMenu?.classList.toggle("active");
+    const menuClose = document.getElementById("menuClose");
+    const setMenuOpen = (open: boolean) => {
+      navMenu?.classList.toggle("active", open);
+      menuToggle?.setAttribute("aria-expanded", String(open));
+      menuToggle?.setAttribute("aria-label", open ? "Fechar menu de navegação" : "Abrir menu de navegação");
+    };
+    const toggleMenu = () => setMenuOpen(!navMenu?.classList.contains("active"));
     menuToggle?.addEventListener("click", toggleMenu);
     cleanups.push(() => menuToggle?.removeEventListener("click", toggleMenu));
-    const closeMenu = () => navMenu?.classList.remove("active");
+    const closeMenu = () => setMenuOpen(false);
+    menuClose?.addEventListener("click", closeMenu);
+    cleanups.push(() => menuClose?.removeEventListener("click", closeMenu));
     navMenu?.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", closeMenu);
       cleanups.push(() => link.removeEventListener("click", closeMenu));
     });
+    const closeMenuOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape" || !navMenu?.classList.contains("active")) return;
+      closeMenu();
+      menuToggle?.focus();
+    };
+    document.addEventListener("keydown", closeMenuOnEscape);
+    cleanups.push(() => document.removeEventListener("keydown", closeMenuOnEscape));
 
     const revealObserver = new IntersectionObserver(
       (entries, obs) => {
@@ -240,11 +255,14 @@ function SetimaDigitalPage() {
               </span>
             </a>
 
-            <button className="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação">
+            <button className="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navMenu">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
 
             <ul className="nav-menu" id="navMenu">
+              <li className="menu-close-item">
+                <button className="menu-close" id="menuClose" aria-label="Fechar menu de navegação">×</button>
+              </li>
               <li><a href="#quem-somos" className="nav-link">Quem Somos</a></li>
               <li><a href="#servicos" className="nav-link">7 Pilares</a></li>
               <li><a href="#portfolio" className="nav-link">Portfólio</a></li>
@@ -484,7 +502,7 @@ function SetimaDigitalPage() {
                 </div>
 
                 <div className="stat-badge-highlight">
-                  <span style={{ fontSize: "0.85rem", color: "#8c93a8" }}>Contato oficial: Matheus de Paula</span>
+                  <span className="official-contact">Contato oficial: Matheus de Paula</span>
                   <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
                     <a href="https://www.instagram.com/setimadigital/" target="_blank" rel="noopener noreferrer" className="instagram-pill">
                       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>

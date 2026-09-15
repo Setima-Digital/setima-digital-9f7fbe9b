@@ -44,6 +44,25 @@
       overflow-x: hidden;
     }
 
+    .setima-page img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      object-fit: cover;
+    }
+
+    .setima-page video,
+    .setima-page iframe {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border: 0;
+    }
+
     h1, h2, h3, h4, .brand-title {
       font-family: var(--font-display);
       letter-spacing: -0.02em;
@@ -106,6 +125,7 @@
     .brand-symbol-icon {
       width: 36px;
       height: 36px;
+      aspect-ratio: 1 / 1;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -114,9 +134,9 @@
     }
 
     .brand-symbol-icon img {
-      display: block;
-      width: 100%;
+      width: auto;
       height: 100%;
+      max-width: 100%;
       object-fit: contain;
     }
 

@@ -2090,6 +2090,12 @@
         min-height: 44px;
       }
 
+      .lightbox-close-btn {
+        width: 44px;
+        min-width: 44px;
+        height: 44px;
+      }
+
       .menu-toggle {
         width: 44px;
         height: 44px;
@@ -2123,6 +2129,8 @@
       .direct-links .cta-label,
       .form-submit-btn .cta-label {
         display: -webkit-box;
+        max-height: 2.8em;
+        line-height: 1.4;
         overflow: hidden;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;

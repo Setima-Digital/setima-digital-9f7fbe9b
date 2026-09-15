@@ -2144,9 +2144,9 @@
         flex-shrink: 0;
       }
 
-      .portfolio-bottom-action .cta-label,
-      .direct-links .cta-label,
-      .form-submit-btn .cta-label {
+      .portfolio-bottom-action .label-mobile,
+      .direct-links .label-mobile,
+      .form-submit-btn .label-mobile {
         display: -webkit-box;
         max-height: 2.8em;
         line-height: 1.4;

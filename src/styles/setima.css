@@ -733,6 +733,8 @@
       gap: 2rem;
     }
 
+    .stat-row-secondary { margin-top: 2.2rem; }
+
     .stat-item {
       position: relative;
     }
@@ -833,6 +835,13 @@
       gap: 2rem;
       background: linear-gradient(135deg, #161528 0%, #12121e 100%);
       border: 1px solid rgba(255, 61, 154, 0.3);
+    }
+
+    .featured-service-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.35rem;
     }
 
     .service-card {
@@ -1641,6 +1650,13 @@
       padding: 2rem;
     }
 
+    .lightbox-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
     /* Scroll reveal animations */
     .reveal-elem {
       opacity: 0;
@@ -1741,8 +1757,8 @@
       .hero-badge-float,
       .frame-meta-tag,
       .lightbox-modal {
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
       }
 
       .stats-card-matrix,
@@ -1958,10 +1974,10 @@
         gap: 1.25rem;
       }
       .service-card.pillar-featured > .service-pill-tag { grid-column: auto; }
-      .service-card.pillar-featured > div:nth-child(2) > div {
-        align-items: flex-start !important;
+      .service-card.pillar-featured .featured-service-heading {
+        align-items: flex-start;
         flex-direction: column;
-        gap: 0.35rem !important;
+        gap: 0.35rem;
       }
 
       .portfolio-filters {
@@ -2197,9 +2213,9 @@
         -webkit-line-clamp: 2;
       }
 
-      .lightbox-body > div:last-child {
+      .lightbox-body .lightbox-actions {
         flex-direction: column;
-        gap: 0.75rem !important;
+        gap: 0.75rem;
       }
 
       .lightbox-body .btn-brand-primary,
@@ -2224,7 +2240,7 @@
       .hero-badge-float { align-items: flex-start; }
 
       .stat-row { grid-template-columns: minmax(0, 1fr); }
-      .stat-row + .stat-row { margin-top: 1.25rem !important; }
+      .stat-row-secondary { margin-top: 1.25rem; }
 
       .portfolio-filters {
         display: grid;
@@ -2237,7 +2253,7 @@
       .cta-container { padding-right: 0.75rem; padding-left: 0.75rem; }
       .contact-form-card { padding: 1rem; }
 
-      .lightbox-body > div:last-child { flex-direction: column; }
+      .lightbox-body .lightbox-actions { flex-direction: column; }
       .lightbox-body .btn-brand-primary,
       .lightbox-body .btn-cinema-secondary { width: 100%; }
     }

@@ -466,7 +466,7 @@ function SetimaDigitalPage() {
                   </div>
                 </div>
 
-                <div className="stat-row" style={{ marginTop: "2.2rem" }}>
+                <div className="stat-row stat-row-secondary">
                   <div className="stat-item">
                     <div className="stat-number">
                       <span className="counter" data-target="100">100</span>
@@ -633,7 +633,7 @@ function SetimaDigitalPage() {
               </div>
 
               <div>
-                <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem", marginBottom: "0.35rem" }}>
+                <div className="featured-service-heading">
                   <span className="service-num" style={{ color: "var(--brand-fuchsia)", fontSize: "1.5rem" }}>07</span>
                   <h3 className="service-title" style={{ margin: "0" }}>Estratégia e Posicionamento de Marca</h3>
                 </div>
@@ -1129,7 +1129,7 @@ function SetimaDigitalPage() {
               <span className="project-client" id="modalTag">Imobiliário</span>
               <h3 style={{ fontSize: "1.5rem", color: "#fff", margin: "0.35rem 0 0.75rem" }} id="modalTitle">Título do Projeto</h3>
               <p style={{ color: "#9aa1b8", fontSize: "0.98rem", lineHeight: "1.6" }} id="modalDesc">Descrição do projeto...</p>
-              <div style={{ marginTop: "1.5rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+              <div className="lightbox-actions">
                 <a href="https://wa.me/5547996300079?text=Ol%C3%A1!%20Gostei%20do%20projeto%20que%20vi%20no%20site%20da%20S%C3%A9tima%20Digital." target="_blank" rel="noopener noreferrer" className="btn-brand-primary" style={{ padding: "0.7rem 1.4rem", fontSize: "0.9rem" }}>
                   Pedir Orçamento Deste Formato
                 </a>

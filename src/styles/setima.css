@@ -1814,6 +1814,7 @@
         overflow-wrap: break-word;
         word-break: normal;
         hyphens: none;
+        white-space: nowrap;
       }
       .hero-title .title-slim { letter-spacing: 0.12em; }
 
@@ -2000,15 +2001,34 @@
         min-width: 0;
         max-width: 100%;
       }
+      .form-input,
+      .form-textarea,
+      .form-select { font-size: 1rem; }
 
       .site-footer { padding: 3.5rem 1rem 2rem; }
       .footer-top { gap: 1.5rem; }
+      .footer-links { gap: 0.25rem; }
+      .footer-links a {
+        display: flex;
+        min-height: 44px;
+        align-items: center;
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-break: normal;
+      }
       .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
 
-      .lightbox-modal { padding: 1rem; }
+      .lightbox-modal {
+        padding: 0;
+        overflow: hidden;
+      }
       .lightbox-card {
-        max-height: calc(100svh - 2rem);
+        width: calc(100% - 2rem);
+        max-width: 800px;
+        max-height: 90vh;
+        max-height: 90svh;
         overflow-y: auto;
+        overflow-x: hidden;
       }
       .lightbox-preview-area {
         height: auto;

@@ -1673,6 +1673,35 @@
     }
 
     @media (max-width: 768px) {
+      h1,
+      h2,
+      h3,
+      h4,
+      .hero-tagline,
+      .project-title,
+      .step-title {
+        text-wrap: balance;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: normal;
+        hyphens: none;
+      }
+
+      p,
+      .about-copy,
+      .manifesto-box,
+      .badge-text,
+      .stat-label,
+      #chip-info-box,
+      .form-status,
+      .footer-brand-p {
+        text-wrap: pretty;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: normal;
+        hyphens: none;
+      }
+
       .nav-header { padding: 0.85rem 0; }
       .nav-header.scrolled { padding: 0.65rem 0; }
 
@@ -1718,7 +1747,7 @@
         max-width: 100%;
         padding-right: 0.85rem;
         padding-left: 0.85rem;
-        font-size: 0.7rem;
+        font-size: 0.875rem;
         letter-spacing: 0.12em;
         text-align: center;
       }
@@ -1727,7 +1756,9 @@
       .hero-title .title-bold,
       .hero-title .title-slim {
         max-width: 100%;
-        overflow-wrap: anywhere;
+        overflow-wrap: break-word;
+        word-break: normal;
+        hyphens: none;
       }
       .hero-title .title-slim { letter-spacing: 0.12em; }
 
@@ -1761,17 +1792,50 @@
       }
 
       .badge-icon-box { flex-shrink: 0; }
-      .badge-text span { display: block; overflow-wrap: anywhere; }
+      .badge-text { font-size: 0.875rem; line-height: 1.5; }
+      .badge-text span {
+        display: block;
+        font-size: 0.875rem;
+        overflow-wrap: break-word;
+        word-break: normal;
+      }
       .scroll-indicator { display: none; }
 
       .section-wrap { padding: 4.5rem 1rem; }
       .section-head { margin-bottom: 2.5rem; }
 
       .section-title,
-      .cta-big-title { overflow-wrap: anywhere; }
+      .cta-big-title {
+        overflow-wrap: break-word;
+        word-break: normal;
+        hyphens: none;
+      }
       .section-title { font-size: clamp(1.65rem, 8vw, 2.25rem); }
       .section-desc,
       .about-copy { font-size: 1rem; }
+      .section-desc,
+      .about-copy,
+      .manifesto-box,
+      .service-desc,
+      .step-desc,
+      #chip-info-box,
+      .cta-p,
+      .footer-brand-p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .section-tag,
+      .brand-value-chip,
+      .service-pill-tag,
+      .frame-meta-tag,
+      .project-client,
+      .project-meta-row,
+      .form-label,
+      .form-status,
+      .footer-bottom {
+        font-size: 0.875rem;
+      }
 
       .about-grid,
       .services-grid,
@@ -1854,7 +1918,9 @@
         padding-right: 1rem;
         padding-left: 1rem;
         text-align: center;
-        overflow-wrap: anywhere;
+        overflow-wrap: break-word;
+        word-break: normal;
+        hyphens: none;
       }
       .direct-links svg { flex-shrink: 0; }
 
@@ -1929,7 +1995,7 @@
         display: flex;
         width: 100%;
         justify-content: center;
-        font-size: 0.64rem;
+        font-size: 0.875rem;
         letter-spacing: 0.09em;
       }
       .hero-title { font-size: clamp(2.25rem, 13vw, 3.4rem); }

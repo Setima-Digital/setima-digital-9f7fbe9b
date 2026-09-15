@@ -1655,6 +1655,25 @@
 
     /* Responsive */
     @media (max-width: 1024px) {
+      .menu-toggle,
+      .instagram-pill,
+      .tab-btn,
+      .chip-item,
+      .form-submit-btn {
+        min-height: 44px;
+      }
+
+      .menu-toggle {
+        width: 44px;
+        height: 44px;
+      }
+
+      .lightbox-close-btn {
+        width: 46px;
+        min-width: 46px;
+        height: 46px;
+      }
+
       .nav-container,
       .hero-content,
       .section-head,
@@ -2091,9 +2110,9 @@
       }
 
       .lightbox-close-btn {
-        width: 44px;
-        min-width: 44px;
-        height: 44px;
+        width: 46px;
+        min-width: 46px;
+        height: 46px;
       }
 
       .menu-toggle {

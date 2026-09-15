@@ -239,6 +239,13 @@
       cursor: pointer;
     }
 
+    .menu-close-item { display: none; }
+
+    .official-contact {
+      color: #8c93a8;
+      font-size: 0.85rem;
+    }
+
     /* Hero Section */
     .hero-section {
       position: relative;
@@ -1808,7 +1815,10 @@
 
       .brand-logo,
       .brand-name { min-width: 0; }
+      .brand-logo { min-height: 44px; }
       .brand-symbol-icon { flex-shrink: 0; }
+
+      .official-contact { font-size: 0.875rem; }
 
       .hero-section {
         width: 100%;
@@ -2095,6 +2105,26 @@
         pointer-events: none;
         transition: transform 0.35s ease, visibility 0s linear 0.35s;
         box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+      }
+      .menu-close-item {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        display: block;
+      }
+      .menu-close {
+        display: inline-flex;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border-subtle);
+        border-radius: 8px;
+        background: transparent;
+        color: #ffffff;
+        font-size: 1.75rem;
+        line-height: 1;
+        cursor: pointer;
       }
       .nav-menu.active {
         transform: translateX(0);

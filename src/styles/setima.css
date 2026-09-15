@@ -834,14 +834,14 @@
       align-items: center;
       gap: 2rem;
       background: linear-gradient(135deg, #161528 0%, #12121e 100%);
+      border: 1px solid rgba(255, 61, 154, 0.3);
+    }
 
     .featured-service-heading {
       display: flex;
       align-items: baseline;
       gap: 0.75rem;
       margin-bottom: 0.35rem;
-    }
-      border: 1px solid rgba(255, 61, 154, 0.3);
     }
 
     .service-card {
@@ -2253,7 +2253,7 @@
       .cta-container { padding-right: 0.75rem; padding-left: 0.75rem; }
       .contact-form-card { padding: 1rem; }
 
-      .lightbox-body > div:last-child { flex-direction: column; }
+      .lightbox-body .lightbox-actions { flex-direction: column; }
       .lightbox-body .btn-brand-primary,
       .lightbox-body .btn-cinema-secondary { width: 100%; }
     }

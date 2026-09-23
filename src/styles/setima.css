@@ -1197,6 +1197,69 @@
       100% { transform: translateX(-50%); }
     }
 
+    .clients-section {
+      overflow: hidden;
+    }
+
+    .clients-marquee {
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      position: relative;
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .clients-track {
+      display: flex;
+      align-items: center;
+      gap: 3.5rem;
+      width: max-content;
+      margin: 0;
+      padding: 0.5rem 1.75rem 0.5rem 0;
+      list-style: none;
+      animation: clientsScroll 38s linear infinite;
+    }
+
+    .clients-marquee:hover .clients-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes clientsScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .client-logo {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+    }
+
+    .client-logo img {
+      height: 48px;
+      width: auto;
+      max-width: 180px;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: 0.65;
+      transition: filter 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .client-logo:hover img {
+      filter: grayscale(0);
+      opacity: 1;
+      transform: scale(1.06);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .clients-track {
+        animation: none;
+      }
+    }
+
     .marquee-item {
       display: flex;
       align-items: center;

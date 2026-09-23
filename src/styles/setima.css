@@ -1255,11 +1255,12 @@
     }
 
     .client-logo--light-bg img {
-      background: rgba(255, 255, 255, 0.95);
+      background: #ffffff;
       border-radius: 8px;
       padding: 4px 10px;
-      opacity: 0.95;
+      opacity: 1;
     }
+
 
 
 

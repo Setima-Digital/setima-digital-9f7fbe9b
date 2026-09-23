@@ -11,6 +11,16 @@ import logoEisen from "@/assets/EISEN_BARBEARIA.png.asset.json";
 import logoFarmaLinz from "@/assets/FARMA_LINZ.png.asset.json";
 import logoFmr from "@/assets/FMR_MARCENARIA.png.asset.json";
 import logoGermania from "@/assets/GERMANIA_IMOBILIARIA.png.asset.json";
+import logoPetFish from "@/assets/PET_FISH.png.asset.json";
+import logoJeta from "@/assets/JETA_IMOVEIS.png.asset.json";
+import logoKowski from "@/assets/KOWSKI.png.asset.json";
+import logoKrAdv from "@/assets/KR_ADV.png.asset.json";
+import logoInifi from "@/assets/INIFI.png.asset.json";
+import logoAnimalGold from "@/assets/ANIMAL_GOLD.png.asset.json";
+import logoBaher from "@/assets/BAHER.png.asset.json";
+import logoBiseli from "@/assets/BISELI_TEXTIL.png.asset.json";
+import logoDecopizza from "@/assets/DECOPIZZA.png.asset.json";
+import logoFran from "@/assets/FRAN_ARQUITETURA.png.asset.json";
 
 const clientLogos = [
   { src: logoJapahaus.url, name: "Japahaus" },

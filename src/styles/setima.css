@@ -1218,7 +1218,7 @@
       margin: 0;
       padding: 0.5rem 1.75rem 0.5rem 0;
       list-style: none;
-      animation: clientsScroll 38s linear infinite;
+      animation: clientsScroll 52s linear infinite;
     }
 
     .clients-marquee:hover .clients-track {
@@ -1253,6 +1253,13 @@
       opacity: 1;
       transform: scale(1.06);
     }
+
+    .client-logo--light-bg img {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 8px;
+      padding: 4px 10px;
+    }
+
 
     @media (prefers-reduced-motion: reduce) {
       .clients-track {

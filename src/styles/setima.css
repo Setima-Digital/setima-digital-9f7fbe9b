@@ -2352,3 +2352,19 @@
       .lightbox-body .btn-cinema-secondary { width: 100%; }
     }
   
+@media (max-width: 768px) {
+  .clients-track {
+    gap: 2.25rem;
+    padding-right: 1.25rem;
+    animation-duration: 30s;
+  }
+
+  .client-logo,
+  .client-logo img {
+    height: 40px;
+  }
+
+  .client-logo img {
+    max-width: 140px;
+  }
+}

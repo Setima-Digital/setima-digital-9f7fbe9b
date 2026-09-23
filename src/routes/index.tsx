@@ -2,6 +2,27 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import "@/styles/setima.css";
 import setimaSymbol from "@/assets/setima-symbol.png.asset.json";
+import logoJapahaus from "@/assets/JAPAHAUS.png.asset.json";
+import logoA8 from "@/assets/a8_imoveis.png.asset.json";
+import logoMarechal from "@/assets/AUTO_POSTO_MARECHAL.png.asset.json";
+import logoHjf from "@/assets/CONSTRUTORA_HJF.png.asset.json";
+import logoDrDiego from "@/assets/DR_DIEGO.png.asset.json";
+import logoEisen from "@/assets/EISEN_BARBEARIA.png.asset.json";
+import logoFarmaLinz from "@/assets/FARMA_LINZ.png.asset.json";
+import logoFmr from "@/assets/FMR_MARCENARIA.png.asset.json";
+import logoGermania from "@/assets/GERMANIA_IMOBILIARIA.png.asset.json";
+
+const clientLogos = [
+  { src: logoJapahaus.url, name: "Japahaus" },
+  { src: logoA8.url, name: "A8 Imóveis" },
+  { src: logoMarechal.url, name: "Auto Posto Marechal" },
+  { src: logoHjf.url, name: "Construtora HJF" },
+  { src: logoDrDiego.url, name: "Diego C. Stapazoli — Advocacia" },
+  { src: logoEisen.url, name: "Eisen Barbearia" },
+  { src: logoFarmaLinz.url, name: "Farma Linz" },
+  { src: logoFmr.url, name: "FMR Marcenaria" },
+  { src: logoGermania.url, name: "Germânia Assessoria Imobiliária" },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -830,6 +851,29 @@ function SetimaDigitalPage() {
               <span className="cta-label label-mobile">Ver mais no Instagram</span>
               <span className="cta-label label-desktop">Ver mais no Instagram (@setimadigital)</span>
             </a>
+          </div>
+        </section>
+
+
+        <section className="section-wrap clients-section" id="clientes" aria-label="Clientes que confiam na Sétima Digital">
+          <div className="section-head reveal-elem">
+            <span className="section-tag">CLIENTES</span>
+            <h2 className="section-title">Empresas que confiam na Sétima Digital</h2>
+          </div>
+
+          <div className="clients-marquee reveal-elem">
+            <ul className="clients-track">
+              {clientLogos.map((logo) => (
+                <li className="client-logo" key={logo.name}>
+                  <img src={logo.src} alt={`Logo ${logo.name}`} loading="lazy" decoding="async" />
+                </li>
+              ))}
+              {clientLogos.map((logo) => (
+                <li className="client-logo" key={`${logo.name}-dup`} aria-hidden="true">
+                  <img src={logo.src} alt="" loading="lazy" decoding="async" />
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

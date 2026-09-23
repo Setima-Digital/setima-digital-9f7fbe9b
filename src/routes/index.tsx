@@ -11,6 +11,16 @@ import logoEisen from "@/assets/EISEN_BARBEARIA.png.asset.json";
 import logoFarmaLinz from "@/assets/FARMA_LINZ.png.asset.json";
 import logoFmr from "@/assets/FMR_MARCENARIA.png.asset.json";
 import logoGermania from "@/assets/GERMANIA_IMOBILIARIA.png.asset.json";
+import logoPetFish from "@/assets/PET_FISH.png.asset.json";
+import logoJeta from "@/assets/JETA_IMOVEIS.png.asset.json";
+import logoKowski from "@/assets/KOWSKI.png.asset.json";
+import logoKrAdv from "@/assets/KR_ADV.png.asset.json";
+import logoInifi from "@/assets/INIFI.png.asset.json";
+import logoAnimalGold from "@/assets/ANIMAL_GOLD.png.asset.json";
+import logoBaher from "@/assets/BAHER.png.asset.json";
+import logoBiseli from "@/assets/BISELI_TEXTIL.png.asset.json";
+import logoDecopizza from "@/assets/DECOPIZZA.png.asset.json";
+import logoFran from "@/assets/FRAN_ARQUITETURA.png.asset.json";
 
 const clientLogos = [
   { src: logoJapahaus.url, name: "Japahaus" },
@@ -22,6 +32,16 @@ const clientLogos = [
   { src: logoFarmaLinz.url, name: "Farma Linz" },
   { src: logoFmr.url, name: "FMR Marcenaria" },
   { src: logoGermania.url, name: "Germânia Assessoria Imobiliária" },
+  { src: logoPetFish.url, name: "Pet Fish" },
+  { src: logoJeta.url, name: "JETA Imóveis" },
+  { src: logoKowski.url, name: "Kowski Plásticos" },
+  { src: logoKrAdv.url, name: "Krueger & Rodrigues Alves — Advocacia", lightBg: true },
+  { src: logoInifi.url, name: "Inifi" },
+  { src: logoAnimalGold.url, name: "Animal Gold" },
+  { src: logoBaher.url, name: "Baher" },
+  { src: logoBiseli.url, name: "Biselli Têxtil" },
+  { src: logoDecopizza.url, name: "Deco Pizzas" },
+  { src: logoFran.url, name: "Fran Arquitetura" },
 ];
 
 export const Route = createFileRoute("/")({
@@ -864,12 +884,12 @@ function SetimaDigitalPage() {
           <div className="clients-marquee reveal-elem">
             <ul className="clients-track">
               {clientLogos.map((logo) => (
-                <li className="client-logo" key={logo.name}>
+                <li className={`client-logo${logo.lightBg ? " client-logo--light-bg" : ""}`} key={logo.name}>
                   <img src={logo.src} alt={`Logo ${logo.name}`} loading="lazy" decoding="async" />
                 </li>
               ))}
               {clientLogos.map((logo) => (
-                <li className="client-logo" key={`${logo.name}-dup`} aria-hidden="true">
+                <li className={`client-logo${logo.lightBg ? " client-logo--light-bg" : ""}`} key={`${logo.name}-dup`} aria-hidden="true">
                   <img src={logo.src} alt="" loading="lazy" decoding="async" />
                 </li>
               ))}

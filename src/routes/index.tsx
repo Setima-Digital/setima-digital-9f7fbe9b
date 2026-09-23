@@ -32,6 +32,16 @@ const clientLogos = [
   { src: logoFarmaLinz.url, name: "Farma Linz" },
   { src: logoFmr.url, name: "FMR Marcenaria" },
   { src: logoGermania.url, name: "Germânia Assessoria Imobiliária" },
+  { src: logoPetFish.url, name: "Pet Fish" },
+  { src: logoJeta.url, name: "JETA Imóveis" },
+  { src: logoKowski.url, name: "Kowski Plásticos" },
+  { src: logoKrAdv.url, name: "Krueger & Rodrigues Alves — Advocacia", lightBg: true },
+  { src: logoInifi.url, name: "Inifi" },
+  { src: logoAnimalGold.url, name: "Animal Gold" },
+  { src: logoBaher.url, name: "Baher" },
+  { src: logoBiseli.url, name: "Biselli Têxtil" },
+  { src: logoDecopizza.url, name: "Deco Pizzas" },
+  { src: logoFran.url, name: "Fran Arquitetura" },
 ];
 
 export const Route = createFileRoute("/")({

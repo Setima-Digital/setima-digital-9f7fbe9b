@@ -884,12 +884,12 @@ function SetimaDigitalPage() {
           <div className="clients-marquee reveal-elem">
             <ul className="clients-track">
               {clientLogos.map((logo) => (
-                <li className="client-logo" key={logo.name}>
+                <li className={`client-logo${logo.lightBg ? " client-logo--light-bg" : ""}`} key={logo.name}>
                   <img src={logo.src} alt={`Logo ${logo.name}`} loading="lazy" decoding="async" />
                 </li>
               ))}
               {clientLogos.map((logo) => (
-                <li className="client-logo" key={`${logo.name}-dup`} aria-hidden="true">
+                <li className={`client-logo${logo.lightBg ? " client-logo--light-bg" : ""}`} key={`${logo.name}-dup`} aria-hidden="true">
                   <img src={logo.src} alt="" loading="lazy" decoding="async" />
                 </li>
               ))}

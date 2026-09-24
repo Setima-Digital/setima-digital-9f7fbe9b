@@ -78,6 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "author", content: "Sétima Digital" },
+      { name: "google-site-verification", content: "jeb2xjNi-K6ZpCNarT6DLdk5NgNV4tS0HDVh7cIA08w" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Sétima Digital" },
       { name: "twitter:card", content: "summary_large_image" },

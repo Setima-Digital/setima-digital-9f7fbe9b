@@ -1552,7 +1552,7 @@
 
       .nav-header.scrolled,
       .hero-pill,
-      .hero-badge-float,
+      .hero-badge-float {
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
       }

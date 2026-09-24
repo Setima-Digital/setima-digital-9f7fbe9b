@@ -2378,3 +2378,117 @@
     max-width: 140px;
   }
 }
+
+/* ===== Shorts (vídeos verticais do YouTube) ===== */
+.shorts-block {
+  margin-top: 3rem;
+}
+
+.shorts-heading {
+  margin: 0 0 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  color: #edf0f8;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.shorts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 400px) {
+  .shorts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .shorts-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+.short-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  aspect-ratio: 9 / 16;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #12121e;
+  cursor: pointer;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.short-card:hover,
+.short-card:focus-visible {
+  border-color: rgba(255, 107, 26, 0.5);
+  transform: translateY(-3px);
+}
+
+.short-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.short-card:hover img {
+  transform: scale(1.04);
+}
+
+.short-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-gradient-h);
+  color: #ffffff;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease;
+}
+
+.short-card:hover .short-play {
+  transform: scale(1.1);
+}
+
+/* Modal do player */
+.shorts-dialog {
+  width: calc(100% - 2rem);
+  max-width: 400px;
+  padding: 0.75rem;
+  background: #12121e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+}
+
+.shorts-player {
+  width: min(100%, calc(78vh * 9 / 16));
+  aspect-ratio: 9 / 16;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #0b0b12;
+}
+
+.shorts-player iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}

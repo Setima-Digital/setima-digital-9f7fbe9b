@@ -475,6 +475,17 @@ function SetimaDigitalPage() {
               </div>
 
 
+              <div className="brand-values-grid">
+                <span className="brand-value-chip">Originalidade</span>
+                <span className="brand-value-chip">Compromisso</span>
+                <span className="brand-value-chip">Resultado</span>
+                <span className="brand-value-chip">Interesse</span>
+                <span className="brand-value-chip">Inclusiva</span>
+                <span className="brand-value-chip">Aberta</span>
+                <span className="brand-value-chip">Simples</span>
+                <span className="brand-value-chip">Engajada</span>
+              </div>
+
               <div className="about-features" style={{ marginTop: "2rem" }}>
                 <div className="about-feat-item">
                   <span className="feat-check">✓</span>
@@ -1055,16 +1066,6 @@ function SetimaDigitalPage() {
                   <span className="cta-label label-desktop">Acessar Bio &amp; Agenda Oficial (Linktree)</span>
                 </a>
               </div>
-            </div>
-
-
-            <div className="cta-values-cluster" aria-label="Valores da Sétima Digital">
-              <span className="cta-value-chip">Originalidade</span>
-              <span className="cta-value-chip">Compromisso</span>
-              <span className="cta-value-chip">Resultado</span>
-              <span className="cta-value-chip">Interesse</span>
-              <span className="cta-value-chip">Inclusiva</span>
-              <span className="cta-value-chip">Engajada</span>
             </div>
 
 

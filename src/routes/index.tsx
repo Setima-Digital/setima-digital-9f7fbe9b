@@ -70,6 +70,45 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: "https://setimadigital.com.br/" },
+    ],
+    links: [{ rel: "canonical", href: "https://setimadigital.com.br/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "Sétima Digital",
+          description:
+            "Agência de marketing digital e produtora audiovisual em Blumenau/SC, com atendimento em todo o Brasil.",
+          url: "https://setimadigital.com.br/",
+          telephone: "+55 47 99630-0079",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Blumenau",
+            addressRegion: "SC",
+            addressCountry: "BR",
+          },
+          areaServed: "BR",
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "7 Pilares do Marketing Digital",
+            itemListElement: [
+              "Produção de Vídeos Criativos",
+              "Produção Fotográfica",
+              "Gestão de Tráfego Pago",
+              "Social Media (Reels e Conteúdo)",
+              "Transmissões ao Vivo",
+              "Inteligência Artificial para Conteúdo",
+              "Estratégia e Posicionamento de Marca",
+            ].map((name) => ({
+              "@type": "Offer",
+              itemOffered: { "@type": "Service", name },
+            })),
+          },
+        }),
+      },
     ],
   }),
   component: SetimaDigitalPage,
@@ -693,7 +732,7 @@ function SetimaDigitalPage() {
                 >
                   <img
                     src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
-                    alt=""
+                    alt={`Miniatura do vídeo vertical produzido pela Sétima Digital — ${video.title}`}
                     loading="lazy"
                     decoding="async"
                   />

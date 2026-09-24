@@ -883,6 +883,31 @@ function SetimaDigitalPage() {
               <span className="cta-label label-desktop">Ver mais no Instagram (@setimadigital)</span>
             </a>
           </div>
+
+          <div className="shorts-block reveal-elem">
+            <h3 className="shorts-heading">Vídeos em destaque</h3>
+            <div className="shorts-grid">
+              {shortsVideos.map((video) => (
+                <button
+                  type="button"
+                  className="short-card"
+                  key={video.id}
+                  onClick={() => setActiveShort(video.id)}
+                  aria-label={`Assistir vídeo: ${video.title}`}
+                >
+                  <img
+                    src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="short-play" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
         </section>
 
 

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import "@/styles/setima.css";
 import setimaSymbol from "@/assets/setima-symbol.png.asset.json";
 import logoJapahaus from "@/assets/JAPAHAUS.png.asset.json";
@@ -44,6 +45,14 @@ const clientLogos = [
   { src: logoFran.url, name: "Fran Arquitetura" },
 ];
 
+const shortsVideos = [
+  { id: "lVCSBA4-la0", title: "Short Sétima Digital 1" },
+  { id: "Z1RholsVwtM", title: "Short Sétima Digital 2" },
+  { id: "-pddYQF_p8Q", title: "Short Sétima Digital 3" },
+  { id: "W1UU9qCmjKQ", title: "Short Sétima Digital 4" },
+  { id: "c6JCaeYgibQ", title: "Short Sétima Digital 5" },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -67,6 +76,8 @@ export const Route = createFileRoute("/")({
 });
 
 function SetimaDigitalPage() {
+  const [activeShort, setActiveShort] = useState<string | null>(null);
+
   useEffect(() => {
     const cleanups: Array<() => void> = [];
 
@@ -872,6 +883,31 @@ function SetimaDigitalPage() {
               <span className="cta-label label-desktop">Ver mais no Instagram (@setimadigital)</span>
             </a>
           </div>
+
+          <div className="shorts-block reveal-elem">
+            <h3 className="shorts-heading">Vídeos em destaque</h3>
+            <div className="shorts-grid">
+              {shortsVideos.map((video) => (
+                <button
+                  type="button"
+                  className="short-card"
+                  key={video.id}
+                  onClick={() => setActiveShort(video.id)}
+                  aria-label={`Assistir vídeo: ${video.title}`}
+                >
+                  <img
+                    src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="short-play" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
         </section>
 
 
@@ -1222,6 +1258,22 @@ function SetimaDigitalPage() {
             </div>
           </div>
         </div>
+
+        <Dialog open={activeShort !== null} onOpenChange={(open) => { if (!open) setActiveShort(null); }}>
+          <DialogContent className="shorts-dialog" aria-describedby={undefined}>
+            <DialogTitle className="sr-only">Player de vídeo</DialogTitle>
+            {activeShort !== null && (
+              <div className="shorts-player">
+                <iframe
+                  src={`https://www.youtube.com/embed/${activeShort}?autoplay=1&rel=0`}
+                  title="Vídeo da Sétima Digital"
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
 
 
 

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import "@/styles/setima.css";
 import setimaSymbol from "@/assets/setima-symbol.png.asset.json";
 import logoJapahaus from "@/assets/JAPAHAUS.png.asset.json";
@@ -44,6 +45,14 @@ const clientLogos = [
   { src: logoFran.url, name: "Fran Arquitetura" },
 ];
 
+const shortsVideos = [
+  { id: "lVCSBA4-la0", title: "Short Sétima Digital 1" },
+  { id: "Z1RholsVwtM", title: "Short Sétima Digital 2" },
+  { id: "-pddYQF_p8Q", title: "Short Sétima Digital 3" },
+  { id: "W1UU9qCmjKQ", title: "Short Sétima Digital 4" },
+  { id: "c6JCaeYgibQ", title: "Short Sétima Digital 5" },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -67,6 +76,8 @@ export const Route = createFileRoute("/")({
 });
 
 function SetimaDigitalPage() {
+  const [activeShort, setActiveShort] = useState<string | null>(null);
+
   useEffect(() => {
     const cleanups: Array<() => void> = [];
 

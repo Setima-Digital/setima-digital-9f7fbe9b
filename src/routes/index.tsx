@@ -1259,6 +1259,22 @@ function SetimaDigitalPage() {
           </div>
         </div>
 
+        <Dialog open={activeShort !== null} onOpenChange={(open) => { if (!open) setActiveShort(null); }}>
+          <DialogContent className="shorts-dialog" aria-describedby={undefined}>
+            <DialogTitle className="sr-only">Player de vídeo</DialogTitle>
+            {activeShort !== null && (
+              <div className="shorts-player">
+                <iframe
+                  src={`https://www.youtube.com/embed/${activeShort}?autoplay=1&rel=0`}
+                  title="Vídeo da Sétima Digital"
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
+
 
 
 

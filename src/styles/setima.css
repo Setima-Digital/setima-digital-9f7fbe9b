@@ -1941,8 +1941,11 @@
       .chip-item,
       .whatsapp-direct-btn,
       .instagram-direct-btn,
-.form-submit-btn {
+      .form-submit-btn {
         min-height: 44px;
+      }
+
+
 
 
       .menu-toggle {

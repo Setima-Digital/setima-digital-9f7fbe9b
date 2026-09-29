@@ -826,6 +826,14 @@ function SetimaDigitalPage() {
               ))}
             </div>
           </div>
+
+          {videoCategories.map((category) => (
+            <VideoCategoryCarousel
+              key={category.id}
+              category={category}
+              onPlay={setActiveShort}
+            />
+          ))}
         </section>
 
 

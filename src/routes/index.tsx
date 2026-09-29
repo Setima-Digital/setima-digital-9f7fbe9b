@@ -803,7 +803,7 @@ function SetimaDigitalPage() {
           </div>
 
           <div className="shorts-block reveal-elem">
-            <h3 className="shorts-heading">Vídeos em destaque</h3>
+            <h3 className="shorts-heading">Em Destaque</h3>
             <div className="shorts-grid">
               {shortsVideos.map((video) => (
                 <button

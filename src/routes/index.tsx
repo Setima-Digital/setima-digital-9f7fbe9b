@@ -53,6 +53,26 @@ const shortsVideos = [
   { id: "c6JCaeYgibQ", title: "Short Sétima Digital 5" },
 ];
 
+// Categorias de vídeos por segmento — novas categorias (Gastronômico,
+// Dentista, Advogados, Automotivo) entram aqui seguindo o mesmo padrão.
+const videoCategories: {
+  id: string;
+  title: string;
+  videos: { id: string; title: string }[];
+}[] = [
+  {
+    id: "imobiliario",
+    title: "Imobiliário",
+    videos: [
+      { id: "lVCSBA4-la0", title: "Imobiliário — vídeo 1" },
+      { id: "Z1RholsVwtM", title: "Imobiliário — vídeo 2" },
+      { id: "-pddYQF_p8Q", title: "Imobiliário — vídeo 3" },
+      { id: "W1UU9qCmjKQ", title: "Imobiliário — vídeo 4" },
+      { id: "c6JCaeYgibQ", title: "Imobiliário — vídeo 5" },
+    ],
+  },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [

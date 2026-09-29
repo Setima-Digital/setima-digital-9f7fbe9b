@@ -2341,7 +2341,20 @@
   color: #fff;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   text-decoration: none;
+  animation: whatsappPulse 2.4s ease-out infinite;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+@keyframes whatsappPulse {
+  0% {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(37, 211, 102, 0.45);
+  }
+  70% {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(37, 211, 102, 0);
+  }
 }
 
 .floating-whatsapp-btn:hover {
@@ -2371,6 +2384,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .floating-whatsapp-btn {
+    animation: none;
     transition: none;
   }
 }

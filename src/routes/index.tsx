@@ -128,66 +128,116 @@ function VideoCategoryCarousel({
   );
 }
 
+const SITE_URL = "https://setimadigital.com.br/";
+
+const pillarServices = [
+  { name: "Produção de Vídeos Criativos", summary: "A Sétima Digital produz vídeos publicitários, institucionais e tours imobiliários em 4K a partir de Blumenau/SC." },
+  { name: "Produção Fotográfica", summary: "A Sétima Digital realiza fotografia corporativa, de produtos e de arquitetura para empresas de Santa Catarina e do Brasil." },
+  { name: "Gestão de Tráfego Pago", summary: "A Sétima Digital gerencia anúncios em Meta Ads, Google Ads e TikTok com foco em leads qualificados e vendas." },
+  { name: "Social Media (Reels e Conteúdo)", summary: "A Sétima Digital planeja e produz Reels e conteúdo recorrente para redes sociais com linha editorial estratégica." },
+  { name: "Transmissões ao Vivo", summary: "A Sétima Digital faz transmissões ao vivo multicâmera de eventos, palestras e lançamentos em todo o Brasil." },
+  { name: "Inteligência Artificial para Conteúdo", summary: "A Sétima Digital usa inteligência artificial para acelerar roteiros, edição e variações de conteúdo sem perder a identidade da marca." },
+  { name: "Estratégia e Posicionamento de Marca", summary: "A Sétima Digital define posicionamento, mensagem e buyer persona para integrar todos os pilares em uma estratégia única." },
+];
+
+const faqItems = [
+  { q: "Quais serviços oferece a Sétima Digital?", a: "A Sétima Digital, agência de marketing e produtora audiovisual de Blumenau/SC, trabalha com 7 pilares integrados: produção de vídeos criativos, produção fotográfica, gestão de tráfego pago, social media com Reels, transmissões ao vivo, inteligência artificial para conteúdo e estratégia e posicionamento de marca, com atendimento em todo o Brasil." },
+  { q: "Quanto custa produzir um vídeo publicitário em Blumenau?", a: "O preço de um vídeo publicitário em Blumenau depende do roteiro, da duração, do número de diárias de gravação, de locações, equipamentos como drone e da complexidade da edição. A Sétima Digital monta um orçamento personalizado e gratuito pelo WhatsApp (47) 99630-0079 após entender o objetivo da sua campanha." },
+  { q: "O que é uma produtora audiovisual full service?", a: "Uma produtora audiovisual full service cuida de todas as etapas de um projeto: estratégia, roteiro, captação, edição, finalização e distribuição do conteúdo. A Sétima Digital atua assim, unindo produção de vídeo e fotografia à gestão de tráfego pago e redes sociais para transformar o conteúdo em resultado mensurável." },
+  { q: "A Sétima Digital atende empresas fora de Santa Catarina?", a: "Sim. A Sétima Digital tem base em Blumenau, no Vale do Itajaí, e atende empresas em todo o Brasil. Tráfego pago, social media, estratégia de marca e conteúdo com inteligência artificial funcionam de forma remota, e a equipe se desloca para gravações, fotografia e transmissões ao vivo em outros estados." },
+  { q: "Como contratar transmissão ao vivo multicâmera para eventos?", a: "Para contratar uma transmissão ao vivo multicâmera, informe data, local, duração e plataforma de exibição do evento. A Sétima Digital avalia a estrutura de internet e som, define câmeras e operação técnica e entrega a transmissão ao vivo para YouTube, Instagram ou plataformas privadas, em Santa Catarina ou em todo o Brasil." },
+  { q: "Vale a pena usar inteligência artificial na produção de conteúdo?", a: "Vale a pena quando a inteligência artificial é usada com estratégia. Na Sétima Digital, a IA acelera roteiros, legendas, edição e variações de anúncios, reduzindo prazos e custos, enquanto a direção criativa humana garante originalidade, identidade da marca e mensagens alinhadas à buyer persona de cada cliente." },
+  { q: "Como funciona a gestão de tráfego pago da Sétima Digital?", a: "A gestão de tráfego pago da Sétima Digital começa pela definição da buyer persona e das metas de conversão. Em seguida, a equipe cria campanhas em Meta Ads, Google Ads e TikTok, produz os criativos em vídeo e imagem, acompanha os resultados e otimiza os anúncios continuamente para gerar leads qualificados." },
+  { q: "A Sétima Digital faz fotografia corporativa e de produtos?", a: "Sim. A Sétima Digital realiza fotografia corporativa para retratos de autoridade, fotos de equipe, catálogo de produtos, arquitetura e interiores de alto padrão e cobertura de eventos. Os ensaios são feitos em Blumenau, no Vale do Itajaí e em outras cidades do Brasil, com edição profissional incluída." },
+  { q: "Como pedir um orçamento para a Sétima Digital?", a: "O jeito mais rápido de pedir um orçamento é pelo WhatsApp (47) 99630-0079 ou pelo formulário de proposta no final desta página. Conte o objetivo, o serviço de interesse e o prazo. Matheus de Paula, responsável pela Sétima Digital, retorna com uma proposta personalizada para a sua empresa." },
+];
+
+const seoTitle = "Sétima Digital | Produtora Audiovisual em Blumenau/SC";
+const seoDescription = "Agência de marketing e produtora audiovisual em Blumenau/SC: vídeo, foto, tráfego pago e lives em todo o Brasil. Peça seu orçamento pelo WhatsApp.";
+
+const orgId = `${SITE_URL}#organizacao`;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": orgId,
+      name: "Sétima Digital",
+      description: "Agência de marketing digital e produtora audiovisual em Blumenau/SC, com atendimento em todo o Brasil. Mais de 150 produções e campanhas realizadas.",
+      url: SITE_URL,
+      logo: setimaSymbol.url,
+      image: setimaSymbol.url,
+      telephone: "+55 47 99630-0079",
+      address: { "@type": "PostalAddress", addressLocality: "Blumenau", addressRegion: "SC", addressCountry: "BR" },
+      areaServed: { "@type": "Country", name: "Brasil" },
+      sameAs: ["https://www.instagram.com/setimadigital/", "https://linktr.ee/setimadigital"],
+      contactPoint: {
+        "@type": "ContactPoint",
+        name: "Matheus de Paula",
+        telephone: "+55 47 99630-0079",
+        contactType: "sales",
+        areaServed: "BR",
+        availableLanguage: "Portuguese",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "7 Pilares do Marketing Digital",
+        itemListElement: pillarServices.map((s, i) => ({ "@type": "Offer", itemOffered: { "@id": `${SITE_URL}#servico-${i + 1}` } })),
+      },
+    },
+    ...pillarServices.map((s, i) => ({
+      "@type": "Service",
+      "@id": `${SITE_URL}#servico-${i + 1}`,
+      name: s.name,
+      serviceType: s.name,
+      description: s.summary,
+      provider: { "@id": orgId },
+      areaServed: { "@type": "Country", name: "Brasil" },
+    })),
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}#faq`,
+      mainEntity: faqItems.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}#site`,
+      url: SITE_URL,
+      name: "Sétima Digital",
+      inLanguage: "pt-BR",
+      publisher: { "@id": orgId },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [{ "@type": "ListItem", position: 1, name: "Início", item: SITE_URL }],
+    },
+  ],
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sétima Digital — Agência de Marketing e Produtora Audiovisual" },
-      {
-        name: "description",
-        content:
-          "Conexão, ligação e conversão: audiovisual de alto impacto, tráfego pago e estratégia de marca para conectar sua empresa à buyer persona. Blumenau/SC, atendimento em todo o Brasil.",
-      },
-      { property: "og:title", content: "Sétima Digital — Agência de Marketing e Produtora Audiovisual" },
-      {
-        property: "og:description",
-        content:
-          "Os 7 pilares do marketing digital: vídeo, fotografia, tráfego pago, social media, lives, IA e estratégia de marca.",
-      },
+      { title: seoTitle },
+      { name: "description", content: seoDescription },
+      { property: "og:title", content: seoTitle },
+      { property: "og:description", content: seoDescription },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "pt_BR" },
+      { property: "og:url", content: SITE_URL },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:url", content: "https://setimadigital.com.br/" },
+      { name: "twitter:title", content: seoTitle },
+      { name: "twitter:description", content: seoDescription },
     ],
-    links: [{ rel: "canonical", href: "https://setimadigital.com.br/" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "ProfessionalService",
-          name: "Sétima Digital",
-          description:
-            "Agência de marketing digital e produtora audiovisual em Blumenau/SC, com atendimento em todo o Brasil.",
-          url: "https://setimadigital.com.br/",
-          telephone: "+55 47 99630-0079",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Blumenau",
-            addressRegion: "SC",
-            addressCountry: "BR",
-          },
-          areaServed: "BR",
-          hasOfferCatalog: {
-            "@type": "OfferCatalog",
-            name: "7 Pilares do Marketing Digital",
-            itemListElement: [
-              "Produção de Vídeos Criativos",
-              "Produção Fotográfica",
-              "Gestão de Tráfego Pago",
-              "Social Media (Reels e Conteúdo)",
-              "Transmissões ao Vivo",
-              "Inteligência Artificial para Conteúdo",
-              "Estratégia e Posicionamento de Marca",
-            ].map((name) => ({
-              "@type": "Offer",
-              itemOffered: { "@type": "Service", name },
-            })),
-          },
-        }),
-      },
+    links: [
+      { rel: "canonical", href: SITE_URL },
+      { rel: "preload", as: "image", href: setimaSymbol.url },
+      { rel: "alternate", type: "text/markdown", href: "/llms.txt", title: "llms.txt" },
     ],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(structuredData) }],
   }),
   component: SetimaDigitalPage,
 });
+
 
 function SetimaDigitalPage() {
   const [activeShort, setActiveShort] = useState<string | null>(null);
@@ -368,6 +418,7 @@ function SetimaDigitalPage() {
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
 
+            <nav className="nav-primary" aria-label="Navegação principal">
             <ul className="nav-menu" id="navMenu">
               <li className="menu-close-item">
                 <button className="menu-close" id="menuClose" aria-label="Fechar menu de navegação">×</button>
@@ -379,6 +430,7 @@ function SetimaDigitalPage() {
               <li><a href="#atendimento" className="nav-link">Atendimento</a></li>
               <li><a href="#contato" className="nav-link">Contato</a></li>
             </ul>
+            </nav>
 
             <a href="https://wa.me/5547996300079?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" className="nav-cta-btn">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -388,6 +440,7 @@ function SetimaDigitalPage() {
         </header>
 
 
+        <main id="conteudo">
         <section className="hero-section" id="inicio">
 
           <div className="hero-constellation-bg" aria-hidden="true">
@@ -471,6 +524,7 @@ function SetimaDigitalPage() {
             <h1 className="hero-title reveal-elem visible">
               <span className="title-bold">SÉTIMA</span>
               <span className="title-slim">DIGITAL</span>
+              <span className="sr-only"> — Agência de Marketing e Produtora Audiovisual em Blumenau</span>
             </h1>
 
             <div className="hero-tagline reveal-elem visible">
@@ -658,6 +712,7 @@ function SetimaDigitalPage() {
                   </div>
                 </div>
                 <h3 className="service-title">Produção de Vídeos Criativos</h3>
+                <p className="service-summary">{pillarServices[0].summary}</p>
                 <p className="service-desc">
                   Comerciais, filmes institucionais, tours imobiliários e narrativas envolventes com direção fotográfica apurada e captação 4K.
                 </p>
@@ -675,6 +730,7 @@ function SetimaDigitalPage() {
                   </div>
                 </div>
                 <h3 className="service-title">Produção Fotográfica</h3>
+                <p className="service-summary">{pillarServices[1].summary}</p>
                 <p className="service-desc">
                   Ensaios corporativos de autoridade, catálogo de produtos, fotos de arquitetura de alto padrão e cobertura editorial exclusiva.
                 </p>
@@ -692,6 +748,7 @@ function SetimaDigitalPage() {
                   </div>
                 </div>
                 <h3 className="service-title">Gestão de Tráfego Pago</h3>
+                <p className="service-summary">{pillarServices[2].summary}</p>
                 <p className="service-desc">
                   Estratégias de mídia em Meta Ads, Google Ads e TikTok voltadas para atração qualificada da buyer persona e conversões consistentes.
                 </p>
@@ -709,6 +766,7 @@ function SetimaDigitalPage() {
                   </div>
                 </div>
                 <h3 className="service-title">Social Media (Reels e Conteúdo)</h3>
+                <p className="service-summary">{pillarServices[3].summary}</p>
                 <p className="service-desc">
                   Conteúdo diário que retém atenção nos primeiros 3 segundos, gera engajamento e fortalece a conexão genuína com sua comunidade.
                 </p>
@@ -726,6 +784,7 @@ function SetimaDigitalPage() {
                   </div>
                 </div>
                 <h3 className="service-title">Transmissões ao Vivo</h3>
+                <p className="service-summary">{pillarServices[4].summary}</p>
                 <p className="service-desc">
                   Estrutura multicâmera de padrão broadcast para lançamentos, convenções, leilões e eventos corporativos com transmissão estável.
                 </p>
@@ -743,6 +802,7 @@ function SetimaDigitalPage() {
                   </div>
                 </div>
                 <h3 className="service-title">Inteligência Artificial para Conteúdo</h3>
+                <p className="service-summary">{pillarServices[5].summary}</p>
                 <p className="service-desc">
                   Fluxos avançados de IA para roteirização rápida, avatares realistas, testes criativos A/B dinâmicos e escala de produção de ativos.
                 </p>
@@ -763,6 +823,7 @@ function SetimaDigitalPage() {
                 <div className="featured-service-heading">
                   <span className="service-num" style={{ color: "var(--brand-fuchsia)", fontSize: "1.5rem" }}>07</span>
                   <h3 className="service-title" style={{ margin: "0" }}>Estratégia e Posicionamento de Marca</h3>
+                <p className="service-summary">{pillarServices[6].summary}</p>
                 </div>
                 <p className="service-desc" style={{ marginBottom: "0", maxWidth: "780px" }}>
                   O nó central que conecta todos os outros 6 pilares: diagnóstico de mercado, definição clara da buyer persona, discurso comercial e arquitetura de narrativa para transformar audiência em clientes leais.
@@ -808,13 +869,14 @@ function SetimaDigitalPage() {
           <div className="section-head reveal-elem">
             <span className="section-tag">CLIENTES</span>
             <h2 className="section-title">Empresas que confiam na Sétima Digital</h2>
+            <p className="section-desc">Da A8 Imóveis à Germânia Assessoria Imobiliária, a Sétima Digital produz vídeos, fotos e campanhas para empresas de Blumenau, do Vale do Itajaí e de todo o Brasil.</p>
           </div>
 
           <div className="clients-marquee reveal-elem">
             <ul className="clients-track">
               {clientLogos.map((logo) => (
                 <li className={`client-logo${logo.lightBg ? " client-logo--light-bg" : ""}`} key={logo.name}>
-                  <img src={logo.src} alt={`Logo ${logo.name}`} loading="lazy" decoding="async" />
+                  <img src={logo.src} alt={`Logo da ${logo.name}, cliente da Sétima Digital`} loading="lazy" decoding="async" />
                 </li>
               ))}
               {clientLogos.map((logo) => (
@@ -965,6 +1027,28 @@ function SetimaDigitalPage() {
         </section>
 
 
+        <section className="section-wrap faq-section" id="faq" aria-labelledby="faq-title">
+          <div className="section-head reveal-elem visible">
+            <span className="section-tag">PERGUNTAS FREQUENTES</span>
+            <h2 className="section-title" id="faq-title">Dúvidas sobre a Sétima Digital</h2>
+            <p className="section-desc">Respostas diretas sobre produção de vídeo, fotografia, tráfego pago e transmissões ao vivo em Blumenau, Santa Catarina e todo o Brasil.</p>
+          </div>
+          <div className="faq-list">
+            {faqItems.map((item) => (
+              <article className="faq-item" key={item.q}>
+                <details>
+                  <summary>
+                    <h3 className="faq-question">{item.q}</h3>
+                    <span className="faq-icon" aria-hidden="true">+</span>
+                  </summary>
+                  <p className="faq-answer">{item.a}</p>
+                </details>
+              </article>
+            ))}
+          </div>
+        </section>
+
+
         <section className="section-wrap" id="contato">
           <div className="cta-container reveal-elem">
             <div className="cta-text-side">
@@ -1043,6 +1127,8 @@ function SetimaDigitalPage() {
         </section>
 
 
+        </main>
+
         <footer className="site-footer">
           <div className="footer-top">
             <div>
@@ -1069,6 +1155,7 @@ function SetimaDigitalPage() {
                 <li><a href="#portfolio">Portfólio</a></li>
                 <li><a href="#processo">Processo</a></li>
                 <li><a href="#atendimento">Atendimento</a></li>
+                <li><a href="#faq">Perguntas frequentes</a></li>
               </ul>
             </div>
 

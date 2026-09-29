@@ -712,7 +712,7 @@ function SetimaDigitalPage() {
                   </div>
                 </div>
                 <h3 className="service-title">Produção de Vídeos Criativos</h3>
-                <p className="service-summary">{pillarServices[0].summary}</p>
+                <p className="service-summary">{pillarServices[0]?.summary}</p>
                 <p className="service-desc">
                   Comerciais, filmes institucionais, tours imobiliários e narrativas envolventes com direção fotográfica apurada e captação 4K.
                 </p>
@@ -730,7 +730,7 @@ function SetimaDigitalPage() {
                   </div>
                 </div>
                 <h3 className="service-title">Produção Fotográfica</h3>
-                <p className="service-summary">{pillarServices[1].summary}</p>
+                <p className="service-summary">{pillarServices[1]?.summary}</p>
                 <p className="service-desc">
                   Ensaios corporativos de autoridade, catálogo de produtos, fotos de arquitetura de alto padrão e cobertura editorial exclusiva.
                 </p>
@@ -748,7 +748,7 @@ function SetimaDigitalPage() {
                   </div>
                 </div>
                 <h3 className="service-title">Gestão de Tráfego Pago</h3>
-                <p className="service-summary">{pillarServices[2].summary}</p>
+                <p className="service-summary">{pillarServices[2]?.summary}</p>
                 <p className="service-desc">
                   Estratégias de mídia em Meta Ads, Google Ads e TikTok voltadas para atração qualificada da buyer persona e conversões consistentes.
                 </p>
@@ -766,7 +766,7 @@ function SetimaDigitalPage() {
                   </div>
                 </div>
                 <h3 className="service-title">Social Media (Reels e Conteúdo)</h3>
-                <p className="service-summary">{pillarServices[3].summary}</p>
+                <p className="service-summary">{pillarServices[3]?.summary}</p>
                 <p className="service-desc">
                   Conteúdo diário que retém atenção nos primeiros 3 segundos, gera engajamento e fortalece a conexão genuína com sua comunidade.
                 </p>
@@ -784,7 +784,7 @@ function SetimaDigitalPage() {
                   </div>
                 </div>
                 <h3 className="service-title">Transmissões ao Vivo</h3>
-                <p className="service-summary">{pillarServices[4].summary}</p>
+                <p className="service-summary">{pillarServices[4]?.summary}</p>
                 <p className="service-desc">
                   Estrutura multicâmera de padrão broadcast para lançamentos, convenções, leilões e eventos corporativos com transmissão estável.
                 </p>
@@ -802,7 +802,7 @@ function SetimaDigitalPage() {
                   </div>
                 </div>
                 <h3 className="service-title">Inteligência Artificial para Conteúdo</h3>
-                <p className="service-summary">{pillarServices[5].summary}</p>
+                <p className="service-summary">{pillarServices[5]?.summary}</p>
                 <p className="service-desc">
                   Fluxos avançados de IA para roteirização rápida, avatares realistas, testes criativos A/B dinâmicos e escala de produção de ativos.
                 </p>
@@ -823,7 +823,7 @@ function SetimaDigitalPage() {
                 <div className="featured-service-heading">
                   <span className="service-num" style={{ color: "var(--brand-fuchsia)", fontSize: "1.5rem" }}>07</span>
                   <h3 className="service-title" style={{ margin: "0" }}>Estratégia e Posicionamento de Marca</h3>
-                <p className="service-summary">{pillarServices[6].summary}</p>
+                <p className="service-summary">{pillarServices[6]?.summary}</p>
                 </div>
                 <p className="service-desc" style={{ marginBottom: "0", maxWidth: "780px" }}>
                   O nó central que conecta todos os outros 6 pilares: diagnóstico de mercado, definição clara da buyer persona, discurso comercial e arquitetura de narrativa para transformar audiência em clientes leais.

@@ -73,6 +73,69 @@ const videoCategories: {
   },
 ];
 
+function VideoCategoryCarousel({
+  category,
+  onPlay,
+}: {
+  category: (typeof videoCategories)[number];
+  onPlay: (videoId: string) => void;
+}) {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 1 | -1) => {
+    const track = trackRef.current;
+    if (!track) return;
+    track.scrollBy({ left: direction * track.clientWidth * 0.8, behavior: "smooth" });
+  };
+
+  return (
+    <div className="video-category reveal-elem" data-category={category.id}>
+      <div className="video-category-head">
+        <h3 className="shorts-heading">{category.title}</h3>
+        <div className="video-category-arrows">
+          <button
+            type="button"
+            className="video-category-arrow"
+            onClick={() => scroll(-1)}
+            aria-label={`Vídeos anteriores de ${category.title}`}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button
+            type="button"
+            className="video-category-arrow"
+            onClick={() => scroll(1)}
+            aria-label={`Próximos vídeos de ${category.title}`}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+      <div className="video-category-track" ref={trackRef}>
+        {category.videos.map((video) => (
+          <button
+            type="button"
+            className="short-card video-category-card"
+            key={video.id}
+            onClick={() => onPlay(video.id)}
+            aria-label={`Assistir vídeo: ${video.title}`}
+          >
+            <img
+              src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+              alt={`Miniatura do vídeo vertical produzido pela Sétima Digital — ${video.title}`}
+              loading="lazy"
+              decoding="async"
+            />
+            <span className="short-play" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [

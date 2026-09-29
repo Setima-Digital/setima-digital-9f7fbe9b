@@ -45,14 +45,6 @@ const clientLogos = [
   { src: logoFran.url, name: "Fran Arquitetura" },
 ];
 
-const shortsVideos = [
-  { id: "lVCSBA4-la0", title: "Short Sétima Digital 1" },
-  { id: "Z1RholsVwtM", title: "Short Sétima Digital 2" },
-  { id: "-pddYQF_p8Q", title: "Short Sétima Digital 3" },
-  { id: "W1UU9qCmjKQ", title: "Short Sétima Digital 4" },
-  { id: "c6JCaeYgibQ", title: "Short Sétima Digital 5" },
-];
-
 // Categorias de vídeos por segmento — novas categorias (Gastronômico,
 // Dentista, Advogados, Automotivo) entram aqui seguindo o mesmo padrão.
 const videoCategories: {
@@ -800,31 +792,6 @@ function SetimaDigitalPage() {
               <span className="cta-label label-mobile">Ver mais no Instagram</span>
               <span className="cta-label label-desktop">Ver mais no Instagram (@setimadigital)</span>
             </a>
-          </div>
-
-          <div className="shorts-block reveal-elem">
-            <h3 className="shorts-heading">Em Destaque</h3>
-            <div className="shorts-grid">
-              {shortsVideos.map((video) => (
-                <button
-                  type="button"
-                  className="short-card"
-                  key={video.id}
-                  onClick={() => setActiveShort(video.id)}
-                  aria-label={`Assistir vídeo: ${video.title}`}
-                >
-                  <img
-                    src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
-                    alt={`Miniatura do vídeo vertical produzido pela Sétima Digital — ${video.title}`}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span className="short-play" aria-hidden="true">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                  </span>
-                </button>
-              ))}
-            </div>
           </div>
 
           {videoCategories.map((category) => (

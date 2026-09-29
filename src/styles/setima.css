@@ -2327,12 +2327,12 @@
 /* Botão flutuante de contato pelo WhatsApp */
 .floating-whatsapp-btn {
   position: fixed;
-  left: 24px;
+  right: 24px;
   bottom: 24px;
   z-index: 9999;
   display: inline-flex;
-  width: 60px;
-  height: 60px;
+  width: 68px;
+  height: 68px;
   align-items: center;
   justify-content: center;
   border: 2px solid rgba(255, 255, 255, 0.9);
@@ -2357,15 +2357,15 @@
 
 @media (max-width: 600px) {
   .floating-whatsapp-btn {
-    left: 16px;
+    right: 16px;
     bottom: 16px;
-    width: 54px;
-    height: 54px;
+    width: 60px;
+    height: 60px;
   }
 
   .floating-whatsapp-btn svg {
-    width: 27px;
-    height: 27px;
+    width: 32px;
+    height: 32px;
   }
 }
 

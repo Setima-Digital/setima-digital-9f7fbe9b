@@ -369,7 +369,7 @@ function SetimaDigitalPage() {
       if (contact) lines.push(`*Contato:* ${contact}`);
       if (service) lines.push(`*Pilar de Interesse:* ${service}`);
       if (message) lines.push(`*Descrição:* ${message}`);
-      lines.push("", "Vim pelo site setimadigital.lovable.app");
+      lines.push("", "Vim através do site setimadigital.com.br.");
 
       const waUrl = `https://wa.me/5547996300079?text=${encodeURIComponent(lines.join("\n"))}`;
       window.open(waUrl, "_blank");

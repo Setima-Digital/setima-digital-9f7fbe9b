@@ -54,6 +54,8 @@ type PortfolioVideo = {
   platform?: "drive" | "instagram";
   embedUrl?: string;
   thumbnailUrl?: string;
+  contentType?: "photo";
+  linkUrl?: string;
 };
 
 const videoCategories: {
@@ -127,6 +129,57 @@ const videoCategories: {
       },
     ],
   },
+  {
+    id: "material-gastronomico",
+    title: "Material Gastronômico",
+    contentType: "photo",
+    videos: [
+      {
+        id: "C220mBqOGXJ",
+        title: "Material Gastronômico — foto 1",
+        platform: "instagram",
+        contentType: "photo",
+        linkUrl: "https://www.instagram.com/p/C220mBqOGXJ/",
+      },
+      {
+        id: "19w4Jf1PYNreiscBf9siTamfcBuB74hwS",
+        title: "Material Gastronômico — foto 2",
+        platform: "drive",
+        contentType: "photo",
+        linkUrl: "https://drive.google.com/file/d/19w4Jf1PYNreiscBf9siTamfcBuB74hwS/view",
+        thumbnailUrl: "https://drive.google.com/thumbnail?id=19w4Jf1PYNreiscBf9siTamfcBuB74hwS&sz=w640",
+      },
+      {
+        id: "C2aj-xmhbhN",
+        title: "Material Gastronômico — foto 3",
+        platform: "instagram",
+        contentType: "photo",
+        linkUrl: "https://www.instagram.com/reel/C2aj-xmhbhN/",
+      },
+      {
+        id: "1A1kMw5X1ZPDXPSIywlfAecJnyFcMonXt",
+        title: "Material Gastronômico — foto 4",
+        platform: "drive",
+        contentType: "photo",
+        linkUrl: "https://drive.google.com/file/d/1A1kMw5X1ZPDXPSIywlfAecJnyFcMonXt/view",
+        thumbnailUrl: "https://drive.google.com/thumbnail?id=1A1kMw5X1ZPDXPSIywlfAecJnyFcMonXt&sz=w640",
+      },
+      {
+        id: "DWR_Hsdk1Cs",
+        title: "Material Gastronômico — foto 5",
+        platform: "instagram",
+        contentType: "photo",
+        linkUrl: "https://www.instagram.com/p/DWR_Hsdk1Cs/",
+      },
+      {
+        id: "C2dNCnZMSv9",
+        title: "Material Gastronômico — foto 6",
+        platform: "instagram",
+        contentType: "photo",
+        linkUrl: "https://www.instagram.com/reels/C2dNCnZMSv9/",
+      },
+    ],
+  },
 ];
 
 function VideoCategoryCarousel({
@@ -174,23 +227,27 @@ function VideoCategoryCarousel({
             className="short-card video-category-card"
             key={video.id}
             onClick={() => onPlay(video)}
-            aria-label={`Assistir vídeo: ${video.title}`}
+            aria-label={video.contentType === "photo" ? `Abrir foto: ${video.title}` : `Assistir vídeo: ${video.title}`}
           >
             {video.platform === "instagram" && !video.thumbnailUrl ? (
-              <div className="external-video-thumb" data-platform="instagram">
+              <div className={video.contentType === "photo" ? "external-video-thumb external-photo-thumb" : "external-video-thumb"} data-platform="instagram">
                 <span className="external-video-platform">Instagram</span>
                 <strong>{video.title}</strong>
               </div>
             ) : (
               <img
                 src={video.thumbnailUrl ?? `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
-                alt={`Miniatura do vídeo — ${video.title}`}
+                alt={video.contentType === "photo" ? `Foto de portfólio — ${video.title}` : `Miniatura do vídeo — ${video.title}`}
                 loading="lazy"
                 decoding="async"
               />
             )}
             <span className="short-play" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+              {video.contentType === "photo" ? (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg>
+              ) : (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+              )}
             </span>
           </button>
         ))}
@@ -933,6 +990,10 @@ function SetimaDigitalPage() {
               key={category.id}
               category={category}
               onPlay={(video) => {
+                if (video.contentType === "photo" && video.linkUrl) {
+                  window.open(video.linkUrl, "_blank", "noopener,noreferrer");
+                  return;
+                }
                 setActiveShort(video.id);
                 setActiveShortStart(video.startAt ?? 0);
                 setActiveShortEmbedUrl(

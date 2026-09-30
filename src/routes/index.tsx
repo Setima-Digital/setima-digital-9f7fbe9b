@@ -98,6 +98,7 @@ const videoCategories: {
         title: "Seguimentos em Geral — vídeo 2",
         platform: "instagram",
         embedUrl: "https://www.instagram.com/p/DHYYecous0I/embed",
+        thumbnailUrl: "/images/seguimentos-video2-thumbnail.jpg",
       },
       {
         id: "1QxW9qV-PBxzNPUxmNknq1LcecTdgm-6-",
@@ -175,7 +176,7 @@ function VideoCategoryCarousel({
             onClick={() => onPlay(video)}
             aria-label={`Assistir vídeo: ${video.title}`}
           >
-            {video.platform === "instagram" ? (
+            {video.platform === "instagram" && !video.thumbnailUrl ? (
               <div className="external-video-thumb" data-platform="instagram">
                 <span className="external-video-platform">Instagram</span>
                 <strong>{video.title}</strong>

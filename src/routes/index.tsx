@@ -61,6 +61,7 @@ type PortfolioVideo = {
 const videoCategories: {
   id: string;
   title: string;
+  contentType?: "photo";
   videos: PortfolioVideo[];
 }[] = [
   {
@@ -206,7 +207,7 @@ function VideoCategoryCarousel({
             type="button"
             className="video-category-arrow"
             onClick={() => scroll(-1)}
-            aria-label={`Vídeos anteriores de ${category.title}`}
+            aria-label={`${category.contentType === "photo" ? "Fotos" : "Vídeos"} anteriores de ${category.title}`}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
           </button>
@@ -214,7 +215,7 @@ function VideoCategoryCarousel({
             type="button"
             className="video-category-arrow"
             onClick={() => scroll(1)}
-            aria-label={`Próximos vídeos de ${category.title}`}
+            aria-label={`Próximas ${category.contentType === "photo" ? "fotos" : "vídeos"} de ${category.title}`}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>

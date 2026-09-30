@@ -954,8 +954,8 @@ function SetimaDigitalPage() {
                 <div className="featured-service-heading">
                   <span className="service-num" style={{ color: "var(--brand-fuchsia)", fontSize: "1.5rem" }}>07</span>
                   <h3 className="service-title" style={{ margin: "0" }}>Estratégia e Posicionamento de Marca</h3>
-                <p className="service-summary">{pillarServices[6]?.summary}</p>
                 </div>
+                <p className="service-summary">{pillarServices[6]?.summary}</p>
                 <p className="service-desc" style={{ marginBottom: "0", maxWidth: "780px" }}>
                   O nó central que conecta todos os outros 6 pilares: diagnóstico de mercado, definição clara da buyer persona, discurso comercial e arquitetura de narrativa para transformar audiência em clientes leais.
                 </p>

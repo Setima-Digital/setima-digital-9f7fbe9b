@@ -50,7 +50,7 @@ const clientLogos = [
 const videoCategories: {
   id: string;
   title: string;
-  videos: { id: string; title: string }[];
+  videos: { id: string; title: string; startAt?: number }[];
 }[] = [
   {
     id: "imobiliario",
@@ -63,6 +63,16 @@ const videoCategories: {
       { id: "c6JCaeYgibQ", title: "Imobiliário — vídeo 5" },
     ],
   },
+  {
+    id: "clipes-institucionais",
+    title: "Clipes Institucionais",
+    videos: [
+      { id: "hMNTpUBeFsc", title: "Clipe institucional — vídeo 1" },
+      { id: "GOh9xA0djwk", title: "Clipe institucional — vídeo 2" },
+      { id: "KbTOXU2Slck", title: "Clipe institucional — vídeo 3", startAt: 12 },
+      { id: "KiNX8sRnCbQ", title: "Clipe institucional — vídeo 4" },
+    ],
+  },
 ];
 
 function VideoCategoryCarousel({
@@ -70,7 +80,7 @@ function VideoCategoryCarousel({
   onPlay,
 }: {
   category: (typeof videoCategories)[number];
-  onPlay: (videoId: string) => void;
+  onPlay: (videoId: string, startAt?: number) => void;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -109,7 +119,7 @@ function VideoCategoryCarousel({
             type="button"
             className="short-card video-category-card"
             key={video.id}
-            onClick={() => onPlay(video.id)}
+            onClick={() => onPlay(video.id, video.startAt)}
             aria-label={`Assistir vídeo: ${video.title}`}
           >
             <img
@@ -241,6 +251,7 @@ export const Route = createFileRoute("/")({
 
 function SetimaDigitalPage() {
   const [activeShort, setActiveShort] = useState<string | null>(null);
+  const [activeShortStart, setActiveShortStart] = useState(0);
 
   useEffect(() => {
     const cleanups: Array<() => void> = [];
@@ -859,7 +870,10 @@ function SetimaDigitalPage() {
             <VideoCategoryCarousel
               key={category.id}
               category={category}
-              onPlay={setActiveShort}
+              onPlay={(videoId, startAt) => {
+                setActiveShort(videoId);
+                setActiveShortStart(startAt ?? 0);
+              }}
             />
           ))}
         </section>
@@ -1234,7 +1248,7 @@ function SetimaDigitalPage() {
             {activeShort !== null && (
               <div className="shorts-player">
                 <iframe
-                  src={`https://www.youtube.com/embed/${activeShort}?autoplay=1&rel=0`}
+                  src={`https://www.youtube.com/embed/${activeShort}?autoplay=1&rel=0${activeShortStart > 0 ? `&start=${activeShortStart}` : ""}`}
                   title="Vídeo da Sétima Digital"
                   allow="autoplay; encrypted-media; picture-in-picture"
                   allowFullScreen

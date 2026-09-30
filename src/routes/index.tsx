@@ -47,10 +47,19 @@ const clientLogos = [
 
 // Categorias de vídeos por segmento — novas categorias (Gastronômico,
 // Dentista, Advogados, Automotivo) entram aqui seguindo o mesmo padrão.
+type PortfolioVideo = {
+  id: string;
+  title: string;
+  startAt?: number;
+  platform?: "drive" | "instagram";
+  embedUrl?: string;
+  thumbnailUrl?: string;
+};
+
 const videoCategories: {
   id: string;
   title: string;
-  videos: { id: string; title: string; startAt?: number }[];
+  videos: PortfolioVideo[];
 }[] = [
   {
     id: "imobiliario",
@@ -73,6 +82,50 @@ const videoCategories: {
       { id: "KiNX8sRnCbQ", title: "Clipe institucional — vídeo 4" },
     ],
   },
+  {
+    id: "seguimentos-em-geral",
+    title: "Seguimentos em Geral",
+    videos: [
+      {
+        id: "1HjglqLHdu7xrlUn_wse5ufPqc1WXdOVW",
+        title: "Seguimentos em Geral — vídeo 1",
+        platform: "drive",
+        embedUrl: "https://drive.google.com/file/d/1HjglqLHdu7xrlUn_wse5ufPqc1WXdOVW/preview",
+        thumbnailUrl: "https://drive.google.com/thumbnail?id=1HjglqLHdu7xrlUn_wse5ufPqc1WXdOVW&sz=w640",
+      },
+      {
+        id: "DHYYecous0I",
+        title: "Seguimentos em Geral — vídeo 2",
+        platform: "instagram",
+        embedUrl: "https://www.instagram.com/p/DHYYecous0I/embed",
+      },
+      {
+        id: "1QxW9qV-PBxzNPUxmNknq1LcecTdgm-6-",
+        title: "Seguimentos em Geral — vídeo 3",
+        platform: "drive",
+        embedUrl: "https://drive.google.com/file/d/1QxW9qV-PBxzNPUxmNknq1LcecTdgm-6-/preview",
+        thumbnailUrl: "https://drive.google.com/thumbnail?id=1QxW9qV-PBxzNPUxmNknq1LcecTdgm-6-&sz=w640",
+      },
+      {
+        id: "DDAqUSHvFG2",
+        title: "Seguimentos em Geral — vídeo 4",
+        platform: "instagram",
+        embedUrl: "https://www.instagram.com/reel/DDAqUSHvFG2/embed",
+      },
+      {
+        id: "C77gM5AS1tk",
+        title: "Seguimentos em Geral — vídeo 5",
+        platform: "instagram",
+        embedUrl: "https://www.instagram.com/reel/C77gM5AS1tk/embed",
+      },
+      {
+        id: "C9ViWigS-Eo",
+        title: "Seguimentos em Geral — vídeo 6",
+        platform: "instagram",
+        embedUrl: "https://www.instagram.com/reel/C9ViWigS-Eo/embed",
+      },
+    ],
+  },
 ];
 
 function VideoCategoryCarousel({
@@ -80,7 +133,7 @@ function VideoCategoryCarousel({
   onPlay,
 }: {
   category: (typeof videoCategories)[number];
-  onPlay: (videoId: string, startAt?: number) => void;
+  onPlay: (video: PortfolioVideo) => void;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -119,15 +172,22 @@ function VideoCategoryCarousel({
             type="button"
             className="short-card video-category-card"
             key={video.id}
-            onClick={() => onPlay(video.id, video.startAt)}
+            onClick={() => onPlay(video)}
             aria-label={`Assistir vídeo: ${video.title}`}
           >
-            <img
-              src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
-              alt={`Miniatura do vídeo vertical produzido pela Sétima Digital — ${video.title}`}
-              loading="lazy"
-              decoding="async"
-            />
+            {video.platform === "instagram" ? (
+              <div className="external-video-thumb" data-platform="instagram">
+                <span className="external-video-platform">Instagram</span>
+                <strong>{video.title}</strong>
+              </div>
+            ) : (
+              <img
+                src={video.thumbnailUrl ?? `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                alt={`Miniatura do vídeo — ${video.title}`}
+                loading="lazy"
+                decoding="async"
+              />
+            )}
             <span className="short-play" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
             </span>
@@ -252,6 +312,7 @@ export const Route = createFileRoute("/")({
 function SetimaDigitalPage() {
   const [activeShort, setActiveShort] = useState<string | null>(null);
   const [activeShortStart, setActiveShortStart] = useState(0);
+  const [activeShortEmbedUrl, setActiveShortEmbedUrl] = useState<string | null>(null);
 
   useEffect(() => {
     const cleanups: Array<() => void> = [];
@@ -870,9 +931,13 @@ function SetimaDigitalPage() {
             <VideoCategoryCarousel
               key={category.id}
               category={category}
-              onPlay={(videoId, startAt) => {
-                setActiveShort(videoId);
-                setActiveShortStart(startAt ?? 0);
+              onPlay={(video) => {
+                setActiveShort(video.id);
+                setActiveShortStart(video.startAt ?? 0);
+                setActiveShortEmbedUrl(
+                  video.embedUrl ??
+                    `https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0${video.startAt ? `&start=${video.startAt}` : ""}`,
+                );
               }}
             />
           ))}
@@ -1248,7 +1313,7 @@ function SetimaDigitalPage() {
             {activeShort !== null && (
               <div className="shorts-player">
                 <iframe
-                  src={`https://www.youtube.com/embed/${activeShort}?autoplay=1&rel=0${activeShortStart > 0 ? `&start=${activeShortStart}` : ""}`}
+                  src={activeShortEmbedUrl ?? `https://www.youtube.com/embed/${activeShort}?autoplay=1&rel=0${activeShortStart > 0 ? `&start=${activeShortStart}` : ""}`}
                   title="Vídeo da Sétima Digital"
                   allow="autoplay; encrypted-media; picture-in-picture"
                   allowFullScreen
